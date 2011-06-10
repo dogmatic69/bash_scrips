@@ -1,0 +1,18 @@
+#!/bin/sh
+#-------------------------
+# Replace \r\n with \n
+#
+# takes one param which is the filename to do the replace on
+#-------------------------
+newLineReplace(){
+	if [ -z "$1" ] 
+	then
+		echo "please enter the filename to fix"
+		exit
+	else
+		echo "working on \"$1\"."
+	fi
+    
+	sed 's/\r//' $1 > .tmpFileNewLineReplace
+	cat .tmpFileNewLineReplace > $1
+}
